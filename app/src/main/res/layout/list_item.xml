@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingRight="16dp"
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:id="@+id/article_image"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="2"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorNewsItemTitle"
+            android:textSize="14sp"
+            tools:text="Long placeholder title that should wrap to at least 2 lines of text" />
+
+        <TextView
+            android:id="@+id/article_byline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/textColorNewsItemDetails"
+            android:textSize="12sp"
+            tools:text="Marquez Valdes-Scantling" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorNewsItemDetails"
+            android:textSize="12sp"
+            tools:text="Mar 6, 2010" />
+    </LinearLayout>
+
+</LinearLayout>
