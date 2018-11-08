@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title">
+
+    <ListPreference
+        android:defaultValue="@string/settings_sport_filter_default"
+        android:entries="@array/settings_sport_filter_labels"
+        android:entryValues="@array/settings_sport_filter_values"
+        android:key="@string/settings_sport_filter_key"
+        android:title="@string/settings_sport_filter_label" />
+
+    <ListPreference
+        android:defaultValue="@string/settings_country_origin_default"
+        android:entries="@array/settings_country_origin_labels"
+        android:entryValues="@array/settings_country_origin_values"
+        android:key="@string/settings_country_origin_key"
+        android:title="@string/settings_country_origin_label" />
+
+</PreferenceScreen>

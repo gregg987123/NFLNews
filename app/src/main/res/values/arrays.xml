@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--For the Sport Filter Setting-->
+    <string-array name="settings_sport_filter_labels">
+        <item>@string/settings_sport_filter_all_label</item>
+        <item>@string/settings_sport_filter_mlb_label</item>
+        <item>@string/settings_sport_filter_nba_label</item>
+        <item>@string/settings_sport_filter_nfl_label</item>
+        <item>@string/settings_sport_filter_nhl_label</item>
+    </string-array>
+
+    <string-array name="settings_sport_filter_values">
+        <item>@string/settings_sport_filter_all_value</item>
+        <item>@string/settings_sport_filter_mlb_value</item>
+        <item>@string/settings_sport_filter_nba_value</item>
+        <item>@string/settings_sport_filter_nfl_value</item>
+        <item>@string/settings_sport_filter_nhl_value</item>
+    </string-array>
+
+    <!--For the Country of Origin Setting-->
+    <string-array name="settings_country_origin_labels">
+        <item>@string/settings_country_origin_all_label</item>
+        <item>@string/settings_country_origin_us_label</item>
+        <item>@string/settings_country_origin_uk_label</item>
+        <item>@string/settings_country_origin_aus_label</item>
+    </string-array>
+
+    <string-array name="settings_country_origin_values">
+        <item>@string/settings_country_origin_all_value</item>
+        <item>@string/settings_country_origin_us_value</item>
+        <item>@string/settings_country_origin_uk_value</item>
+        <item>@string/settings_country_origin_aus_value</item>
+    </string-array>
+
+</resources>
