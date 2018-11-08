@@ -146,7 +146,8 @@ public class MainActivity extends AppCompatActivity implements
         uriBuilder.appendQueryParameter("tag", sportFilter);
 
         //if countryOriginFilter == "all", we do not want to add this filter
-        if (countryOriginFilter != getString(R.string.settings_country_origin_all_value)) {
+        if (!countryOriginFilter.equals(getString(R.string.settings_country_origin_all_value)
+        )) {
             uriBuilder.appendQueryParameter("production-office", countryOriginFilter);
         }
 
