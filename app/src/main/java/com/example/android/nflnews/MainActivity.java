@@ -4,12 +4,16 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -28,8 +32,7 @@ public class MainActivity extends AppCompatActivity implements
      */
     private static final String GUARDIAN_REQUEST_URL =
             "https://content.guardianapis" +
-                    ".com/search?section=sport&tag=sport%2Fnfl&show-elements=image&show-fields" +
-                    "=byline%2Cthumbnail&page-size=20&api-key=e3b12aa9-122a-43a4-b4ed-7a512f85c89b";
+                    ".com/search?";
 
     /**
      * Constant value for the NewsItem loader ID. We can choose any integer.
@@ -118,9 +121,41 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int i, Bundle bundle) {
-        // TODO: Create a new loader for the given URL
         Log.i(LOG_TAG, "onCreateLoader() triggered");
-        return new NewsItemLoader(MainActivity.this, GUARDIAN_REQUEST_URL);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences. The second parameter is the
+        // default value for this preference.
+        String sportFilter = sharedPrefs.getString(
+                getString(R.string.settings_sport_filter_key),
+                getString(R.string.settings_sport_filter_default));
+
+        String countryOriginFilter = sharedPrefs.getString(
+                getString(R.string.settings_country_origin_key),
+                getString(R.string.settings_country_origin_default)
+        );
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value. For example, the `section=sport`
+        uriBuilder.appendQueryParameter("section", "sport");
+        uriBuilder.appendQueryParameter("tag", sportFilter);
+
+        //if countryOriginFilter == "all", we do not want to add this filter
+        if (countryOriginFilter != getString(R.string.settings_country_origin_all_value)) {
+            uriBuilder.appendQueryParameter("production-office", countryOriginFilter);
+        }
+
+        uriBuilder.appendQueryParameter("show-fields", "byline,thumbnail");
+        uriBuilder.appendQueryParameter("page-size", "20");
+        uriBuilder.appendQueryParameter("api-key", "e3b12aa9-122a-43a4-b4ed-7a512f85c89b");
+
+        Log.i(LOG_TAG, "URL Search = " + uriBuilder.toString());
+        return new NewsItemLoader(MainActivity.this, uriBuilder.toString());
     }
 
     @Override
@@ -145,9 +180,27 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onLoaderReset(Loader<List<NewsItem>> loader) {
-        // TODO: Loader reset, so we can clear out our existing data.
         Log.i(LOG_TAG, "onLoadReset() triggered");
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
+    }
+
+    // This method initializes the contents of the Activity's options menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    // This method is called whenever an item in the options menu is selected.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,9 +1,55 @@
 <resources>
-    <string name="app_name">NFL News</string>
+    <string name="app_name">Sports News</string>
 
     <!-- Text to display in the list when there are no results found [CHAR LIMIT=NONE] -->
-    <string name="no_results_found">No results found.</string>
+    <string name="no_results_found">No results found. Try changing the settings.</string>
 
     <!-- Text to display in the list when there is no internet connection [CHAR LIMIT=NONE] -->
     <string name="no_connection">No internet connection.</string>
+
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Filter Settings</string>
+
+    <!--Could be used for number of results-->
+    <string name="settings_min_magnitude_label">Minimum Magnitude</string>
+    <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
+    <string name="settings_min_magnitude_default" translatable="false">0</string>
+
+    <!-- Strings For Filter by Sport Preference [CHAR LIMIT=30] -->
+    <string name="settings_sport_filter_label">Filter by Sport</string>
+    <string name="settings_sport_filter_key" translatable="false">filter_by_sport</string>
+    <string name="settings_sport_filter_default" translatable="false">@string/settings_sport_filter_all_value</string>
+    <!-- Label for Filter by Sport All option [CHAR LIMIT=20] -->
+    <string name="settings_sport_filter_all_label">All Sports</string>
+    <string name="settings_sport_filter_all_value" translatable="false">sport/us-sport</string>
+    <!-- Label for Filter by Sport MLB option [CHAR LIMIT=20] -->
+    <string name="settings_sport_filter_mlb_label">MLB</string>
+    <string name="settings_sport_filter_mlb_value" translatable="false">sport/mlb</string>
+    <!-- Label for Filter by Sport NBA option [CHAR LIMIT=20] -->
+    <string name="settings_sport_filter_nba_label">NBA</string>
+    <string name="settings_sport_filter_nba_value" translatable="false">sport/nba</string>
+    <!-- Label for Filter by Sport NFL option [CHAR LIMIT=20] -->
+    <string name="settings_sport_filter_nfl_label">NFL</string>
+    <string name="settings_sport_filter_nfl_value" translatable="false">sport/nfl</string>
+    <!-- Label for Filter by Sport NHL option [CHAR LIMIT=20] -->
+    <string name="settings_sport_filter_nhl_label">NHL</string>
+    <string name="settings_sport_filter_nhl_value" translatable="false">sport/nhl</string>
+
+    <!-- Strings For Filter by Country of Origin Preference [CHAR LIMIT=30] -->
+    <string name="settings_country_origin_label">Filter by Country of Origin</string>
+    <string name="settings_country_origin_key" translatable="false">filter_by_country_origin</string>
+    <string name="settings_country_origin_default" translatable="false">@string/settings_country_origin_all_value</string>
+    <!-- Label for Filter by Country of Origin All option [CHAR LIMIT=20] -->
+    <string name="settings_country_origin_all_label">All Countries</string>
+    <string name="settings_country_origin_all_value" translatable="false">all</string>
+    <!-- Label for Filter by Country of Origin United States option [CHAR LIMIT=20] -->
+    <string name="settings_country_origin_us_label">United States</string>
+    <string name="settings_country_origin_us_value" translatable="false">us</string>
+    <!-- Label for Filter by Country of Origin United Kingdom option [CHAR LIMIT=20] -->
+    <string name="settings_country_origin_uk_label">United Kingdom</string>
+    <string name="settings_country_origin_uk_value" translatable="false">uk</string>
+    <!-- Label for Filter by Country of Origin Australia option [CHAR LIMIT=20] -->
+    <string name="settings_country_origin_aus_label">Australia</string>
+    <string name="settings_country_origin_aus_value" translatable="false">aus</string>
+
 </resources>

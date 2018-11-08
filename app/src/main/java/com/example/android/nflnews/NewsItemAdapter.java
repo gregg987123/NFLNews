@@ -1,20 +1,13 @@
 package com.example.android.nflnews;
 
 import android.app.Activity;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
 
@@ -77,6 +70,13 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         String formattedDate = parseAndFormatDate(currentNewsItem.getPublicationDate());
         // Display the date of the current news item in that TextView
         dateView.setText(formattedDate);
+
+        // Find the TextView with view ID section_name_text_view in list_item.xml
+        TextView sectionNameView = (TextView) listItemView.findViewById(R.id
+                .section_name_text_view);
+        String sectionName = currentNewsItem.getSectionName();
+        // Display the location of the current earthquake in that TextView
+        sectionNameView.setText(sectionName);
 
         // Find ImageView
         ImageView image = listItemView.findViewById(R.id.article_image);

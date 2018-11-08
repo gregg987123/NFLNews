@@ -5,6 +5,7 @@ public class NewsItem {
     private String mPublicationDate;
     private String mByline;
     private String mUrl;
+    private String mSectionName;
     private String mImageUrl;
 
     /**
@@ -18,11 +19,12 @@ public class NewsItem {
      *
      */
     public NewsItem(String title, String publicationDate, String byline, String url, String
-            imageUrl){
+            sectionName, String imageUrl) {
         mTitle = title;
         mPublicationDate = publicationDate;
         mByline = byline;
         mUrl = url;
+        mSectionName = sectionName;
         mImageUrl = imageUrl;
     }
 
@@ -40,6 +42,10 @@ public class NewsItem {
 
     public String getNewsItemUrl(){
         return mUrl;
+    }
+
+    public String getSectionName() {
+        return mSectionName;
     }
 
     public String getImageUrl(){

@@ -23,8 +23,11 @@ import java.util.List;
  */
 public final class QueryUtils {
 
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
+
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -74,6 +77,8 @@ public final class QueryUtils {
                 // associated with the key called "webPublicationDate".
                 String publicationDate = currentNewsItem.getString("webPublicationDate");
 
+                String newsSectionName = currentNewsItem.getString("sectionName");
+
                 // Get the URL associated with the current news item, which is associated with
                 // the key called webUrl.
                 String url = currentNewsItem.getString("webUrl");
@@ -93,7 +98,8 @@ public final class QueryUtils {
 
                 // Create a new {@link NewsItem} object with the title, publication date, byline,
                 // and url from the JSON response.
-                NewsItem newsItem = new NewsItem(title, publicationDate, byline, url, thumbnailUrl);
+                NewsItem newsItem = new NewsItem(title, publicationDate, byline, url,
+                        newsSectionName, thumbnailUrl);
 
                 // Add the new {@link NewsItem} to the list of newsItems.
                 newsItems.add(newsItem);
@@ -122,6 +128,7 @@ public final class QueryUtils {
         }
         return url;
     }
+
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
@@ -162,6 +169,7 @@ public final class QueryUtils {
         }
         return jsonResponse;
     }
+
     /**
      * Convert the {@link InputStream} into a String which contains the
      * whole JSON response from the server.
